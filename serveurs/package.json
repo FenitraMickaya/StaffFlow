@@ -1,0 +1,16 @@
+{
+  "name": "staffflow-backend-server",
+  "version": "1.0.0",
+  "description": "Backend synchronization server for StaffFlow Android attendance and payroll management system",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.19.2",
+    "sqlite3": "^5.1.7"
+  },
+  "author": "StaffFlow Dev AI",
+  "license": "MIT"
+}
