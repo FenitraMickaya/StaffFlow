@@ -8,14 +8,14 @@ on:
 jobs:
   build:
     name: Build Debug APK
-    runs-on: ubuntu-latest
-    timeout-minutes: 15
+    runs-on: ubuntu-24.04
+    timeout-minutes: 20
     steps:
       - name: Checkout
-        uses: actions/checkout@v4
+        uses: actions/checkout@v5
 
       - name: Setup JDK 11
-        uses: actions/setup-java@v4
+        uses: actions/setup-java@v5
         with:
           distribution: temurin
           java-version: '11'
@@ -24,9 +24,11 @@ jobs:
       - name: Setup Android SDK
         uses: android-actions/setup-android@v3
         with:
-          api-level: 36
-          ndk-version: r27c
-          emulator: false
+          packages: |
+            platforms;android-36
+            build-tools;36.0.0
+            cmdline-tools;latest
+          accept-android-sdk-licenses: true
 
       - name: Generate Gradle Wrapper
         run: gradle wrapper --gradle-version 8.7 --distribution-type all
